@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+        <title>订单页</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <script src="js/jquery-3.2.1.min.js" ></script>
+        <script src="js/bootstrap.js" ></script>
+    </head>
+
+    <body>
+
+        <div class="container" style="text-align: center">
+            <h2>
+                欢迎来到订单页
+            </h2>
+        </div>
+
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <nav class="navbar navbar-default">
+                        <div class="container-fluid">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <p class="navbar-brand" >Gnibbuq账本</p>
+                            </div>
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                <ul class="nav navbar-nav">
+                                    <li class="active"><a href="#">订单页<span class="sr-only">(current)</span></a></li>
+                                    <li><a href="/commodity_page">商品页</a></li>
+                                    <li><a href="/logistics_page">商家页</a></li>
+                                    <li><a href="/merchants_page">物流页</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center">
+            <form class="navbar-form">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="请输入想要搜索的订单信息">
+                </div>
+                <button type="submit" id="select_button" class="btn btn-default">提交</button>
+            </form>
+
+            <!-- Button trigger modal -->
+            <div class="row">
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#add_button_modal">
+                    新增订单
+                </button>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="add_button_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">新增订单信息</h4>
+                        </div>
+                        <div class="modal-body" align="center">
+                            <form action="server" >
+                                <table>
+                                    <tr>
+                                        <td><p>商品名称</p></td>
+                                        <td><input id="commodityName" type="text"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p>商家名称</p></td>
+                                        <td><input id="logistics" type="text"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p>物流名称</p></td>
+                                        <td><input id="merchants" type="text"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p>进出库箱数</p></td>
+                                        <td><input id="outBox" type="text"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p>进出库单件</p></td>
+                                        <td><input id="outRemainingNumber" type="text"></td>
+                                    </tr>
+                                </table>
+                            </form>
+                        </div>
+                        <div class="modal-footer" >
+                            <div style="text-align: center">
+                                <button type="submit" class="btn btn-primary">提交</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                <button type="reset" id="resetBtn" value="Reset" class="btn btn-primary">重置</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <hr>
+        <table class="table">
+
+        </table>
+
+
+
+
+
+
+
+
+
+        <hr>
+
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="container" style="text-align:center;">
+            <p color="gray" size="2">版权所有Copyright &copy; Gnibbuq Studio 2019, All Rights Reserved</p>
+        </div>
+        <script>
+            $("#resetBtn").off().on("click",function(){
+                $("#commodityName").val("");
+                $("#logistics").val("");
+                $("#merchants").val("");
+                $("#outBox").val("");
+                $("#outRemainingNumber").val("");
+            });
+
+        </script>
+    </body>
+</html>
