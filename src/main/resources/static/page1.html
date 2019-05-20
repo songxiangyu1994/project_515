@@ -71,28 +71,12 @@
                             <h4 class="modal-title" id="myModalLabel">新增订单信息</h4>
                         </div>
                         <div class="modal-body" align="center">
-                            <form action="server" >
-                                <table>
-                                    <tr>
-                                        <td><p>商品名称</p></td>
-                                        <td><input id="commodityName" type="text"></td>
-                                    </tr>
-                                    <tr>
-                                        <td><p>商家名称</p></td>
-                                        <td><input id="logistics" type="text"></td>
-                                    </tr>
-                                    <tr>
-                                        <td><p>物流名称</p></td>
-                                        <td><input id="merchants" type="text"></td>
-                                    </tr>
-                                    <tr>
-                                        <td><p>进出库箱数</p></td>
-                                        <td><input id="outBox" type="text"></td>
-                                    </tr>
-                                    <tr>
-                                        <td><p>进出库单件</p></td>
-                                        <td><input id="outRemainingNumber" type="text"></td>
-                                    </tr>
+                            <button id="in1">入库</button>
+                            <button id="out1">出库</button>
+                            <br>
+                            <form >
+                                <table id="table1">
+
                                 </table>
                             </form>
                         </div>
@@ -131,17 +115,67 @@
         <br>
         <br>
         <div class="container" style="text-align:center;">
-            <p color="gray" size="2">版权所有Copyright &copy; Gnibbuq Studio 2019, All Rights Reserved</p>
+            <p size="2">版权所有Copyright &copy; Gnibbuq Studio 2019, All Rights Reserved</p>
         </div>
         <script>
             $("#resetBtn").off().on("click",function(){
                 $("#commodityName").val("");
                 $("#logistics").val("");
                 $("#merchants").val("");
-                $("#outBox").val("");
-                $("#outRemainingNumber").val("");
+                $("#inOutBox").val("");
+                $("#inOutRemainingNumber").val("");
             });
 
+        </script>
+        <script>
+            $("#in1").click(function () {
+                $("#table1").html(
+                    " <tr>\n" +
+                    "                                        <td><p>商品名称</p></td>\n" +
+                    "                                        <td><input id=\"commodityName\" type=\"text\"></td>\n" +
+                    "                                    </tr>\n" +
+                    "                                    <tr>\n" +
+                    "                                        <td><p>商家名称</p></td>\n" +
+                    "                                        <td><input id=\"logistics\" type=\"text\"></td>\n" +
+                    "                                    </tr>\n" +
+                    "                                    <tr>\n" +
+                    "                                        <td><p>物流名称</p></td>\n" +
+                    "                                        <td><input id=\"merchants\" type=\"text\"></td>\n" +
+                    "                                    </tr>\n" +
+                    "                                    <tr>\n" +
+                    "                                        <td><p>进库箱数</p></td>\n" +
+                    "                                        <td><input id=\"inOutBox\" type=\"text\"></td>\n" +
+                    "                                    </tr>\n" +
+                    "                                    <tr>\n" +
+                    "                                        <td><p>进库单件</p></td>\n" +
+                    "                                        <td><input id=\"inOutRemainingNumber\" type=\"text\"></td>\n" +
+                    "                                    </tr>"
+                )
+            });
+            $("#out1").click(function () {
+                $("#table1").html(
+                    " <tr>\n" +
+                    "                                        <td><p>商品名称</p></td>\n" +
+                    "                                        <td><input id=\"commodityName\" type=\"text\"></td>\n" +
+                    "                                    </tr>\n" +
+                    "                                    <tr>\n" +
+                    "                                        <td><p>商家名称</p></td>\n" +
+                    "                                        <td><input id=\"logistics\" type=\"text\"></td>\n" +
+                    "                                    </tr>\n" +
+                    "                                    <tr>\n" +
+                    "                                        <td><p>物流名称</p></td>\n" +
+                    "                                        <td><input id=\"merchants\" type=\"text\"></td>\n" +
+                    "                                    </tr>\n" +
+                    "                                    <tr>\n" +
+                    "                                        <td><p>出库箱数</p></td>\n" +
+                    "                                        <td><input id=\"inOutBox\" type=\"text\"></td>\n" +
+                    "                                    </tr>\n" +
+                    "                                    <tr>\n" +
+                    "                                        <td><p>出库单件</p></td>\n" +
+                    "                                        <td><input id=\"inOutRemainingNumber\" type=\"text\"></td>\n" +
+                    "                                    </tr>"
+                )
+            })
         </script>
     </body>
 </html>
