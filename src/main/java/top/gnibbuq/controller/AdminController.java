@@ -16,12 +16,16 @@ import top.gnibbuq.service.AdminService;
 public class AdminController {
     @Autowired
     private AdminService adminService;
+    @Autowired
+    private User user;
     @RequestMapping(value = "addUser" )
     @ResponseBody
-    public String addUser(User user, @RequestParam("username")String username){
+    public String addUser(@RequestParam("username")String username,@RequestParam("password")String password){
         String jsonData = null;
+        user.setUsername(username);
+        user.setPassword(password);
         try {
-            jsonData = adminService.addUser();
+            jsonData = adminService.addUser(user);
         } catch (Exception e) {
             e.printStackTrace();
             ResultInfo resultInfo = new ResultInfo(false,null,"服务器忙，请稍后再试！");
@@ -40,9 +44,10 @@ public class AdminController {
     @RequestMapping(value = "queryByUsername" )
     @ResponseBody
     public String queryByUsername(@RequestParam("username")String username ){
+        user.setUsername(username);
         String jsonData = null;
         try {
-            jsonData = adminService.queryByUsername();
+            jsonData = adminService.queryByUsername(user);
         } catch (Exception e) {
             e.printStackTrace();
             ResultInfo resultInfo = new ResultInfo(false,null,"服务器忙，请稍后再试！");
