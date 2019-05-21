@@ -95,9 +95,11 @@
                 dataType:"json",
                 success:function(data){
                     if(data.flag){
-                        $("#nickname").val(mylogin.nickname);
-                    }else{
-                        $("#nickname").val("用户");
+                        $("#username").autocomplete({
+                            source: [
+                                data.data
+                            ]
+                        });
                     }
                 }
             });
