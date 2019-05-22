@@ -19,6 +19,7 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public String addUser(User user) {
 
+        int i = adminMapper.addUser(user);
         return null;
     }
 }
