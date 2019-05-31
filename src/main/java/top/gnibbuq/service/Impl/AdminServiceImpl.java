@@ -8,10 +8,10 @@ import java.util.List;
 
 public class AdminServiceImpl implements AdminService {
     @Autowired
-    private AdminMapper adminMapper;
+    //private AdminMapper adminMapper;
     @Override
     public String queryByUsername(User user) {
-        List<User> userList = adminMapper.queryByUsername(user);
+    //    List<User> userList = adminMapper.queryByUsername(user);
         
         return null;
     }
@@ -19,7 +19,7 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public String addUser(User user) {
 
-        int i = adminMapper.addUser(user);
+       // int i = adminMapper.addUser(user);
         return null;
     }
 }
