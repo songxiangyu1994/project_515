@@ -1,10 +1,10 @@
 package top.gnibbuq.service;
 
-import top.gnibbuq.pojo.User;
+import top.gnibbuq.pojo.Admin;
 
 public interface AdminService {
 
-    String queryByUsername(User user);
+    String queryByUsername(Admin admin);
 
-    String addUser(User user);
+    String addAdmin(Admin admin);
 }

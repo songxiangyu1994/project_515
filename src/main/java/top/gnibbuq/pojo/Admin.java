@@ -11,6 +11,8 @@ public class Admin {
     private String username;
     //仓库名称
     private String depository;
+    //仓库ID
+    private String depositoryId;
     //密码
     private String password;
     //超级管理员密码
