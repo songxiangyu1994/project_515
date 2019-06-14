@@ -20,7 +20,7 @@
         select depository_name from depository where depository_name = "%" #{depositoryName} "%"
     </select>
 
-    <insert id="depositoryId" >
+    <insert id="addDepository" >
         <selectKey>
             select LAST_INSERT_ID()
         </selectKey>
