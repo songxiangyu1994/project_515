@@ -39,7 +39,7 @@ public class LoginController {
                     resultInfo = new ResultInfo(false,null,"用户名或密码错误");
                     return resultInfo;
                 }
-                resultInfo = new ResultInfo(true,null,null);
+                resultInfo = new ResultInfo(true,null,"登陆成功");
                 //将用户的登录信息存入session中
                 session.setAttribute("loginUser",queryUser);
 
