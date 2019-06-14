@@ -16,11 +16,18 @@
         select username,password from user where username = #{adminstr}
     </select>
 
-    <insert id="depositoryId" >
+    <select id="queryByDepository" resultType="Admin">
+        select depository_name from depository where depository_name = "%" #{depositoryName} "%"
+    </select>
 
+    <insert id="depositoryId" >
+        <selectKey>
+            select LAST_INSERT_ID()
+        </selectKey>
+        insert into depository (id,depository_name) value (null,#{depositoryName})
     </insert>
 
     <insert id="addAdmin" >
-        insert into user (user_id, username, password, ) value ()
+        insert into user (user_id, username, password, depository_id) value (null,#{username},#{password},#{depositoryId})
     </insert>
 </mapper>

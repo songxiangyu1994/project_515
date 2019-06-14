@@ -1,10 +1,12 @@
 package top.gnibbuq.pojo;
 
 import lombok.Data;
+import org.springframework.stereotype.Component;
 
 /**
  * 订单表
  */
+@Component
 @Data
 public class Order {
     //商品名称

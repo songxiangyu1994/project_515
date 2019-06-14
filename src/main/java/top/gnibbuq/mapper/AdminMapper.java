@@ -7,15 +7,18 @@ import top.gnibbuq.pojo.User;
 import java.util.List;
 
 public interface AdminMapper {
-
-
-    void addAdmin (Admin admin);
-
     List<User> queryByUsername(@Param("username") String username);
 
     User queryUserByUsername(@Param("username") String username);
 
     User querySuperPasswordBySuperAdmin(String adminstr);
 
-    String addDepository(@Param("depositoryName") String depository);
+    int addDepository(@Param("depositoryName") String depository);
+
+    void addAdmin(Admin admin);
+
+    List<Admin> queryByDepository(@Param("depositoryName") String depository);
+
+
+
 }
