@@ -8,7 +8,7 @@ public class First_Controller {
 
     @GetMapping("index_page")
     public String getAdmin(){
-            return "page5";
+            return "index_page";
         }
 
 }

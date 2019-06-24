@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class Order_Controller {
     @GetMapping("order_page")
     public String getOrder(){
-        return "page1";
+        return "order_page";
     }
 }

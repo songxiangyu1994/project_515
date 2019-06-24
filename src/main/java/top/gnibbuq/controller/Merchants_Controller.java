@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class Merchants_Controller {
     @GetMapping("merchants_page")
     public String getMerchants(){
-        return "page4";
+        return "merchants_page";
     }
 }
