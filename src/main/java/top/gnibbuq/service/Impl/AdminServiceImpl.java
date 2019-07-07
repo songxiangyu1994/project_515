@@ -2,8 +2,6 @@ package top.gnibbuq.service.Impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import top.gnibbuq.mapper.AdminMapper;
 import top.gnibbuq.pojo.Admin;
 import top.gnibbuq.pojo.User;
@@ -27,7 +25,6 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    @Transactional
     public String addAdmin(Admin admin) {
 
         User queryUser = adminMapper.queryUserByUsername(admin.getUsername());
