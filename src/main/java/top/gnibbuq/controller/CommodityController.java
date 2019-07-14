@@ -2,6 +2,7 @@ package top.gnibbuq.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import top.gnibbuq.pojo.Commodity;
@@ -17,10 +18,11 @@ import java.util.List;
 public class CommodityController {
 	@Autowired
 	CommodityService commodityService;
-	@RequestMapping(value = "allCommodity" )
+	@Autowired
+	ResultInfo resultInfo ;
+	@RequestMapping(value = "allCommodity" , method = RequestMethod.GET )
 	@ResponseBody
 	public ResultInfo selectAllCommodity(HttpSession session){
-		ResultInfo resultInfo = null;
 		User loguser = (User)session.getAttribute("loginUser");
 		if(loguser==null) {
 			resultInfo = new ResultInfo(false,null,"您尚未登陆");

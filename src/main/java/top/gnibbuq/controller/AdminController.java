@@ -2,6 +2,7 @@ package top.gnibbuq.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,12 +23,13 @@ public class AdminController {
     private Admin admin;
     @Autowired
     private User user;
-    @RequestMapping(value = "addUser" )
+    @Autowired
+    ResultInfo resultInfo;
+    @RequestMapping(value = "addUser" ,method = RequestMethod.POST)
     @ResponseBody
     public ResultInfo addAdmin(@RequestParam("username")String username,@RequestParam("password")String password,
                            @RequestParam("depository")String depository,@RequestParam("superstr")String superstr){
         String msg = null;
-        ResultInfo resultInfo = null;
         try {
             admin.setUsername(username);
             admin.setPassword(Md5Util.encodeByMd5(password));
@@ -50,12 +52,11 @@ public class AdminController {
     }
 
 
-    @RequestMapping(value = "queryByUsername" )
+    @RequestMapping(value = "queryByUsername" ,method = RequestMethod.GET)
     @ResponseBody
     public ResultInfo queryByUsername(@RequestParam("username")String username ){
         user.setUsername(username);
        /* String jsonData = null;*/
-        ResultInfo resultInfo = null;
         try {
             List<User> users = adminService.queryByUsername(user);
             resultInfo = new ResultInfo(true,users,"这是所有的相关用户！");
@@ -73,12 +74,11 @@ public class AdminController {
         return resultInfo;
     }
 
-    @RequestMapping(value = "queryByDepository" )
+    @RequestMapping(value = "queryByDepository" , method = RequestMethod.GET)
     @ResponseBody
     public ResultInfo queryByDepository(@RequestParam("depository")String depository ){
         admin.setDepository(depository);
         /*String jsonData = null;*/
-        ResultInfo resultInfo = null;
         try {
             List<Admin> admins = adminService.queryByDepository(admin);
             resultInfo = new ResultInfo(true,admins,"这是所有相关的仓库信息");

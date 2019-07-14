@@ -2,6 +2,7 @@ package top.gnibbuq.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import top.gnibbuq.pojo.Commodity;
@@ -17,14 +18,15 @@ import java.util.List;
 public class FirstController {
     @Autowired
     private FirstService firstService;
+    @Autowired
+    ResultInfo resultInfo;
     /**
      * 查询库存不足5个的商品并红色标出
      * @return 返回商品结果
      */
-    @RequestMapping(value = "index" )
+    @RequestMapping(value = "index" , method = RequestMethod.GET)
     @ResponseBody
     public ResultInfo selectThingsLess(HttpSession session){
-        ResultInfo resultInfo = null;
         User loginUser = (User) session.getAttribute("loginUser");
         if(loginUser==null){
             resultInfo = new ResultInfo(false,null,"您尚未登录，请登录！");

@@ -1,11 +1,13 @@
 package top.gnibbuq.mapper;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import top.gnibbuq.pojo.Admin;
 import top.gnibbuq.pojo.User;
 
 import java.util.List;
 
+@Mapper
 public interface AdminMapper {
     List<User> queryByUsername(@Param("username") String username);
 

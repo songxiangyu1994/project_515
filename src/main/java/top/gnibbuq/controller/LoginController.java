@@ -2,6 +2,7 @@ package top.gnibbuq.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,10 +21,11 @@ public class LoginController {
     private LoginService loginService;
     @Autowired
     private User user;
-    @RequestMapping(value = "login" )
+    @Autowired
+    ResultInfo resultInfo;
+    @RequestMapping(value = "login" , method = RequestMethod.POST)
     @ResponseBody
     public ResultInfo loginByUsernamePassword(@RequestParam("username")String username, @RequestParam("password")String password, HttpSession session){
-        ResultInfo resultInfo = null;
         if(username.equals(null)){
             resultInfo = new ResultInfo(false,null,"用户名不能为空");
             return resultInfo;
